@@ -1,0 +1,31 @@
+#+Title: CAN Bus Industrial Purspective
+# +Author: Prasad Ghole
+#+Email: prasad.ghole@gmail.com
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/ 
+#+REVEAL_THEME: night
+#+OPTIONS: toc:nil num:nil timestamp:nil 
+
+
+* Introduction
+The CAN bus was developed bu BOSCH as a multimaster, message broadcast system that specifies
+maximum 1 megabit per seconds (bps) of speed.
+
+
+* Standard
+CAN is an international standardizatioin Organization (ISO) defined serial communication bus
+originally developed for automotive industry to replace complex and expensive wiring harness
+with two wire bus. The specification call for high immunity to electrical interference and 
+the avility to self-diagnose and repair data errors.
+
+The CAN communication protocol, ISO-11898: 2003, describes how information is passed between
+devices on network and conforms to the Open System Interconnect (OSI) model.
+
+ISO 11898 defines data link and physical layer only.
+
+Application layer is mostly definded by various industrial bodies like 
+- CANOpen by CAN in Automation (CiA)
+- KVASER CAN Kingdom by Kvaser
+- DeviceNet by Rockwell automation
+
+
+   
