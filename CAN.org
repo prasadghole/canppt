@@ -11,7 +11,7 @@ The CAN bus was developed bu BOSCH as a multimaster, message broadcast system th
 maximum 1 megabit per seconds (bps) of speed.
 
 
-* Standard
+* ISO 11898 Standard
 CAN is an international standardizatioin Organization (ISO) defined serial communication bus
 originally developed for automotive industry to replace complex and expensive wiring harness
 with two wire bus. The specification call for high immunity to electrical interference and 
@@ -26,6 +26,39 @@ Application layer is mostly definded by various industrial bodies like
 - CANOpen by CAN in Automation (CiA)
 - KVASER CAN Kingdom by Kvaser
 - DeviceNet by Rockwell automation
+
+* Need for Application layer standards
+As the CAN standard only provide basis for communication only but do not specify things
+like 
+- How to decode payload 
+- How to trasport data more than 64 bytes
+
+* SAE J1939
+Is standard used in heavy-duty vehicles like 
+- Mining vehicles
+- Military vehicles
+- Agriculture
+
+* SAE J1939
+- Support 29 bit extended ID
+- 250K baud rate
+- Parameter Group Numbers (PGN) (standard and use specific)
+- Suspect Parameter Number (SPN)
+- Dynamic 8 bit address assignment to nodes.
+- Data conversion is possilbe across multiple manufacturers
+
+
+* OBD2
+On board diagnostics is a self-diagnostic and reporting. It provide diagnostic trouble codes
+(DTCs) and real time vehicle parameters data using standard ports.
+* UDS 
+* CAN Open
+Is mostly used in industrial automation.
+* DBC Files
+* CAN Errors
+* Tools
+* Bus Transreceivers
+* Analysers
 
 
    
