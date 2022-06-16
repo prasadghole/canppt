@@ -2,30 +2,36 @@
 # +Author: Prasad Ghole
 #+Email: prasad.ghole@gmail.com
 #+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/ 
-#+REVEAL_THEME: night
+#+REVEAL_THEME: white
 #+OPTIONS: toc:nil num:nil timestamp:nil 
 
 
 * Introduction
-The CAN bus was developed bu BOSCH as a multimaster, message broadcast system that specifies
+The CAN bus was developed bu BOSCH as a multi master, message broadcast system that specifies
 maximum 1 megabit per seconds (bps) of speed.
 
 
 * ISO 11898 Standard
-CAN is an international standardizatioin Organization (ISO) defined serial communication bus
+CAN is an international standardization Organization (ISO) defined serial communication bus
 originally developed for automotive industry to replace complex and expensive wiring harness
 with two wire bus. The specification call for high immunity to electrical interference and 
-the avility to self-diagnose and repair data errors.
+the ability to self-diagnose and repair data errors.
 
 The CAN communication protocol, ISO-11898: 2003, describes how information is passed between
 devices on network and conforms to the Open System Interconnect (OSI) model.
 
 ISO 11898 defines data link and physical layer only.
 
-Application layer is mostly definded by various industrial bodies like 
+Application layer is mostly defined by various industrial bodies like 
 - CANOpen by CAN in Automation (CiA)
 - KVASER CAN Kingdom by Kvaser
 - DeviceNet by Rockwell automation
+
+* Standard CAN frame
+[[./img/stdcan.png]]
+
+* Extended CAN frame
+[[./img/extcan.png]]
 
 * Need for Application layer standards
 As the CAN standard only provide basis for communication only but do not specify things
@@ -47,18 +53,59 @@ Is standard used in heavy-duty vehicles like
 - Dynamic 8 bit address assignment to nodes.
 - Data conversion is possilbe across multiple manufacturers
 
+* Parameter Group Number (PGN)
+It is 18 bit subset of 29 bit-extended CAN ID.
 
 * OBD2
 On board diagnostics is a self-diagnostic and reporting. It provide diagnostic trouble codes
 (DTCs) and real time vehicle parameters data using standard ports.
+
 * UDS 
+Unified Diagnostic Service (UDS) is a communication protocol used to diagnost, firmware update
+and routine testing.
+
+The UDS protocol (ISO 14229) is standardizedc across manufacturers. It is a client server 
+protocol with test tool being client and ECU being server.
+
+Use cases
+- Read diagnostic codes
+- Read vehicle parameters
+- Diagnostic
+- Update firmware and settings
+- Secure access
+
+* CAN ISO-TP
+Classiscal and extended CAN support maximum 8 and 64 bytes in one communication frame.
+Diagnostic and firmware upgrade require larger payload. ISO-TP provide facility to extend CAN payload
+upto 4095 bytes using segmentation, flow control and reassembly.
+
 * CAN Open
 Is mostly used in industrial automation.
+
+
 * DBC Files
+CAN DBC CAN database is a text file decribing how to decode raw CAN but data to physical values.
+
+
 * CAN Errors
 * Tools
-* Bus Transreceivers
+* DBC Tools
+- Vector CANDB++
+- Kvaser Database editor
+- canmatrix
+- 
+* Bus Transceivers
 * Analysers
 
-
+LIN 
+- Low cost alternative to CAN bus
+- Mostly used for window, wiper, air condition low time constrained actuators
+- Master slave configuration
+- Single wirr with 1-20 Kbit/s 
+- Time triggered scheduling with guaranteed latency time
+- Variable data length (2,4,8)
+- Error detection
+- Configuration
+- 12 Voltage operating mode
+- Sleep and wake support for power saving
    

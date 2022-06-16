@@ -37,28 +37,36 @@
 </section>
 <section id="introduction" class="slide level1">
 <h1>Introduction</h1>
-<p>The CAN bus was developed bu BOSCH as a multimaster, message
+<p>The CAN bus was developed bu BOSCH as a multi master, message
 broadcast system that specifies maximum 1 megabit per seconds (bps) of
 speed.</p>
 </section>
 <section id="iso-11898-standard" class="slide level1">
 <h1>ISO 11898 Standard</h1>
-<p>CAN is an international standardizatioin Organization (ISO) defined
+<p>CAN is an international standardization Organization (ISO) defined
 serial communication bus originally developed for automotive industry to
 replace complex and expensive wiring harness with two wire bus. The
 specification call for high immunity to electrical interference and the
-avility to self-diagnose and repair data errors.</p>
+ability to self-diagnose and repair data errors.</p>
 <p>The CAN communication protocol, ISO-11898: 2003, describes how
 information is passed between devices on network and conforms to the
 Open System Interconnect (OSI) model.</p>
 <p>ISO 11898 defines data link and physical layer only.</p>
-<p>Application layer is mostly definded by various industrial bodies
+<p>Application layer is mostly defined by various industrial bodies
 like</p>
 <ul>
 <li>CANOpen by CAN in Automation (CiA)</li>
 <li>KVASER CAN Kingdom by Kvaser</li>
 <li>DeviceNet by Rockwell automation</li>
 </ul>
+</section>
+<section id="standard-can-frame" class="slide level1">
+<h1>Standard CAN frame</h1>
+<p><img data-src="./img/stdcan.png" /></p>
+</section>
+<section id="extended-can-frame" class="slide level1">
+<h1>Extended CAN frame</h1>
+<p><img data-src="./img/extcan.png" /></p>
 </section>
 <section id="need-for-application-layer-standards" class="slide level1">
 <h1>Need for Application layer standards</h1>
@@ -89,6 +97,10 @@ not specify things like</p>
 <li>Data conversion is possilbe across multiple manufacturers</li>
 </ul>
 </section>
+<section id="parameter-group-number-pgn" class="slide level1">
+<h1>Parameter Group Number (PGN)</h1>
+<p>It is 18 bit subset of 29 bit-extended CAN ID.</p>
+</section>
 <section id="obd2" class="slide level1">
 <h1>OBD2</h1>
 <p>On board diagnostics is a self-diagnostic and reporting. It provide
@@ -97,6 +109,26 @@ using standard ports.</p>
 </section>
 <section id="uds" class="slide level1">
 <h1>UDS</h1>
+<p>Unified Diagnostic Service (UDS) is a communication protocol used to
+diagnost, firmware update and routine testing.</p>
+<p>The UDS protocol (ISO 14229) is standardizedc across manufacturers.
+It is a client server protocol with test tool being client and ECU being
+server.</p>
+<p>Use cases</p>
+<ul>
+<li>Read diagnostic codes</li>
+<li>Read vehicle parameters</li>
+<li>Diagnostic</li>
+<li>Update firmware and settings</li>
+<li>Secure access</li>
+</ul>
+</section>
+<section id="can-iso-tp" class="slide level1">
+<h1>CAN ISO-TP</h1>
+<p>Classiscal and extended CAN support maximum 8 and 64 bytes in one
+communication frame. Diagnostic and firmware upgrade require larger
+payload. ISO-TP provide facility to extend CAN payload upto 4095 bytes
+using segmentation, flow control and reassembly.</p>
 </section>
 <section id="can-open" class="slide level1">
 <h1>CAN Open</h1>
@@ -104,6 +136,8 @@ using standard ports.</p>
 </section>
 <section id="dbc-files" class="slide level1">
 <h1>DBC Files</h1>
+<p>CAN DBC CAN database is a text file decribing how to decode raw CAN
+but data to physical values.</p>
 </section>
 <section id="can-errors" class="slide level1">
 <h1>CAN Errors</h1>
@@ -111,11 +145,34 @@ using standard ports.</p>
 <section id="tools" class="slide level1">
 <h1>Tools</h1>
 </section>
-<section id="bus-transreceivers" class="slide level1">
-<h1>Bus Transreceivers</h1>
+<section id="dbc-tools" class="slide level1">
+<h1>DBC Tools</h1>
+<ul>
+<li>Vector CANDB++</li>
+<li>Kvaser Database editor</li>
+<li>canmatrix</li>
+<li></li>
+</ul>
+</section>
+<section id="bus-transceivers" class="slide level1">
+<h1>Bus Transceivers</h1>
 </section>
 <section id="analysers" class="slide level1">
 <h1>Analysers</h1>
+<p>LIN</p>
+<ul>
+<li>Low cost alternative to CAN bus</li>
+<li>Mostly used for window, wiper, air condition low time constrained
+actuators</li>
+<li>Master slave configuration</li>
+<li>Single wirr with 1-20 Kbit/s</li>
+<li>Time triggered scheduling with guaranteed latency time</li>
+<li>Variable data length (2,4,8)</li>
+<li>Error detection</li>
+<li>Configuration</li>
+<li>12 Voltage operating mode</li>
+<li>Sleep and wake support for power saving</li>
+</ul>
 </section>
     </div>
   </div>
@@ -150,7 +207,7 @@ using standard ports.</p>
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: true,
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -179,7 +236,7 @@ using standard ports.</p>
         disableLayout: false,
 
         // Vertical centering of slides
-        center: true,
+        center: false,
 
         // Enables touch navigation on devices with touch input
         touch: true,

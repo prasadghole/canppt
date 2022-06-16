@@ -1,2 +1,11 @@
 CANopen 
 DeviceNet
+https://jr0cket.co.uk/2013/10/create-cool-slides--Org-mode-Revealjs.html>
+
+
+Pandoc to reveal
+
+pandoc slides -o slides.html -s -V theme:beige -t revealjs
+
+
+https://github.com/studentkittens/pandoc-revealjs-presentation/blob/master/template/README.md
