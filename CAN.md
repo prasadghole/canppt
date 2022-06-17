@@ -59,17 +59,6 @@ CAN messages are priority base and provide fix or measureable latencies.
 ![Multiple nodes on CAN ](./img/bus_top.png)
 
 
-# ISO Standard
-## ISO 11898 Standard
-The CAN communication protocol, ISO-11898: 2003, describes how information is passed between
-devices on network and conforms to the Open System Interconnect (OSI) model.
-
-ISO 11898 defines data link and physical layer only.
-
-## Application Layer
-* CANOpen by CAN in Automation (CiA)
-* KVASER CAN Kingdom by Kvaser
-* DeviceNet by Rockwell automation
 
 # CAN frames
 ## Dominant vs recessive bit
@@ -80,13 +69,6 @@ ISO 11898 defines data link and physical layer only.
 The bus can have one of two complementary logical values: ’dominant’ or ’recessive’.
 During simultaneous transmission of ’dominant’ and ’recessive’ bits, the resulting bus
 value will be ’dominant’. 
-
-## Wired AND logic
-For example, in case of a wired-AND implementation of the
-bus, the ’dominant’ level would be represented by a logical ’0’ and the ’recessive’ level
-by a logical ’1’. Physical states (e.g. electrical voltage, light) that represent the logical
-levels are not given in this specification.
-
 
 ## Standard CAN frame
 ![Standard CAN frame](./img/stdcan.png)
@@ -106,19 +88,27 @@ levels are not given in this specification.
 ## Extended CAN frame
 ![Extended](./img/extcan.png)
 
+# Bit Stuffing
+## Bit Stuffing
+In order to distingush data frame from bus idle frame CAN actively insert/stuff bit in can payload.
+When ever CAN node sends 5 bits of same logic level (dominant or recessive) it must send one bit
+of opposite level.
+This extra bit is automatically removed by CAN receiver at data link layer.
 
-
-## Need for Application layer standards
-As the CAN standard only provide basis for communication only but do not specify things
-like 
-- How to decode payload 
-- How to trasport data more than 64 bytes
 
 # Bus arbitration 
 ## Arbitration 
 During arbitration every transmitter compares the level of the bit transmitted with the level that is monitored on the bus.
 If these levels are equal the unit may continue to send. When a ’recessive’ level is sent and a ’dominant’ level is
 monitored (see Bus Values), the unit has lost arbitration and must withdraw without sending one more bit.
+
+## Wired AND logic
+For example, in case of a wired-AND implementation of the
+bus, the ’dominant’ level would be represented by a logical ’0’ and the ’recessive’ level
+by a logical ’1’. Physical states (e.g. electrical voltage, light) that represent the logical
+levels are not given in this specification.
+
+
 
 # Safety
 ## Error Detection
@@ -150,7 +140,7 @@ level in a message field that should be coded by the method of bit stuffing.
 Detected by a transmitter whenever it does not monitor a ’dominant’ bit during the ACK SLOT
 
 
-# SAE J1939
+# Application Layer standards
 
 ## SAE J1939
 Is standard used in heavy-duty vehicles like 
@@ -268,15 +258,46 @@ upto 4095 bytes using segmentation, flow control and reassembly.
 ![](./img/multiframe.png)
 
 
+# ISO Standard
+## ISO 11898 Standard
+The CAN communication protocol, ISO-11898: 2003, describes how information is passed between
+devices on network and conforms to the Open System Interconnect (OSI) model.
+
+ISO 11898 defines data link and physical layer only.
+
+## Application Layer
+* CANOpen by CAN in Automation (CiA)
+* KVASER CAN Kingdom by Kvaser
+* DeviceNet by Rockwell automation
 # CAN Open
 ## CAN Open
 Is mostly used in industrial automation.
 
 
-# DBC Files
+# Software Tools
+
 ## DBC Files
 CAN DBC CAN database is a text file decribing how to decode raw CAN but data to physical values.
 
+## Virtual CAN network tools
+Many python libraries can be used to simulate and test CAN bus on PC
+```
+
+import can
+
+bus1 = can.interface.Bus('test', bustype='virtual')
+bus2 = can.interface.Bus('test', bustype='virtual')
+
+msg1 = can.Message(arbitration_id=0xabcde, data=[1,2,3])
+bus1.send(msg1)
+msg2 = bus2.recv()
+
+#assert msg1 == msg2
+assert msg1.arbitration_id == msg2.arbitration_id
+assert msg1.data == msg2.data
+assert msg1.timestamp != msg2.timestamp
+
+```
 
 # LIN 
 ## LIN 
