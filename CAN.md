@@ -71,8 +71,9 @@ During simultaneous transmission of ’dominant’ and ’recessive’ bits, the
 value will be ’dominant’. 
 
 ## Standard CAN frame
-![Standard CAN frame](./img/stdcan.png)
+![Standard CAN frame](./img/stddata_frame.png)
 
+## Frame Fields
 * SOF Start of frame. Dominant 0 tells other nodes intend to talk.
 * ID  Frame Identifier 
 * RTR Requesting data from other nodes.
@@ -82,11 +83,15 @@ value will be ’dominant’.
 * ACK
 * EOF End of CAN frames
 
+## Extended CAN frame
+![Extended](./img/extdata_frame.png)
+
+## Remote data frame
+![Extended](./img/rmt_frame.png)
+
 ## CAN Waveforms
 ![CAN waveform](./img/can_scope.png)
 
-## Extended CAN frame
-![Extended](./img/extcan.png)
 
 # Bit Stuffing
 ## Bit Stuffing
@@ -126,6 +131,7 @@ Defective nodes are switched off.
 A unit that is sending a bit on the bus also monitors the bus. A BIT ERROR has to 
 be detected at that bit time, when the bit value that is monitored is different from the 
 bit value that is sent.
+If Bit error occure during arbitration process it will not be treated as bit error.
 
 ## Stuff Error
 A STUFF ERROR has to be detected at the bit time of the 6th consecutive equal bit 
@@ -310,6 +316,10 @@ IC is used for interfacing external CAN bus with microcontroller.
 
 ## MPC2515 Block Diagram
 ![](./img/mpc2515block.png)
+
+## CAN Analysers
+
+![](./img/vector.png)
 
 # LIN 
 ## LIN 

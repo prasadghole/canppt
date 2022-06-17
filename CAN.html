@@ -157,9 +157,12 @@ or ’recessive’. During simultaneous transmission of ’dominant’ and
 <section id="standard-can-frame" class="slide level2">
 <h2>Standard CAN frame</h2>
 <figure>
-<img data-src="./img/stdcan.png" alt="Standard CAN frame" />
+<img data-src="./img/stddata_frame.png" alt="Standard CAN frame" />
 <figcaption aria-hidden="true">Standard CAN frame</figcaption>
 </figure>
+</section>
+<section id="frame-fields" class="slide level2">
+<h2>Frame Fields</h2>
 <ul>
 <li>SOF Start of frame. Dominant 0 tells other nodes intend to
 talk.</li>
@@ -172,18 +175,25 @@ talk.</li>
 <li>EOF End of CAN frames</li>
 </ul>
 </section>
+<section id="extended-can-frame" class="slide level2">
+<h2>Extended CAN frame</h2>
+<figure>
+<img data-src="./img/extdata_frame.png" alt="Extended" />
+<figcaption aria-hidden="true">Extended</figcaption>
+</figure>
+</section>
+<section id="remote-data-frame" class="slide level2">
+<h2>Remote data frame</h2>
+<figure>
+<img data-src="./img/rmt_frame.png" alt="Extended" />
+<figcaption aria-hidden="true">Extended</figcaption>
+</figure>
+</section>
 <section id="can-waveforms" class="slide level2">
 <h2>CAN Waveforms</h2>
 <figure>
 <img data-src="./img/can_scope.png" alt="CAN waveform" />
 <figcaption aria-hidden="true">CAN waveform</figcaption>
-</figure>
-</section>
-<section id="extended-can-frame" class="slide level2">
-<h2>Extended CAN frame</h2>
-<figure>
-<img data-src="./img/extcan.png" alt="Extended" />
-<figcaption aria-hidden="true">Extended</figcaption>
 </figure>
 </section></section>
 <section>
@@ -247,7 +257,9 @@ specification.</p>
 <h2>Bit Errors</h2>
 <p>A unit that is sending a bit on the bus also monitors the bus. A BIT
 ERROR has to be detected at that bit time, when the bit value that is
-monitored is different from the bit value that is sent.</p>
+monitored is different from the bit value that is sent. If Bit error
+occure during arbitration process it will not be treated as bit
+error.</p>
 </section>
 <section id="stuff-error" class="slide level2">
 <h2>Stuff Error</h2>
@@ -491,6 +503,10 @@ bus with microcontroller.</p>
 <section id="mpc2515-block-diagram" class="slide level2">
 <h2>MPC2515 Block Diagram</h2>
 <p><img data-src="./img/mpc2515block.png" /></p>
+</section>
+<section id="can-analysers" class="slide level2">
+<h2>CAN Analysers</h2>
+<p><img data-src="./img/vector.png" /></p>
 </section></section>
 <section>
 <section id="lin" class="title-slide slide level1">
