@@ -9,3 +9,5 @@ pandoc slides -o slides.html -s -V theme:beige -t revealjs
 
 
 https://github.com/studentkittens/pandoc-revealjs-presentation/blob/master/template/README.md
+
+https://oer.gitlab.io/emacs-reveal-howto/howto.html#/slide-orgf5ae58d
