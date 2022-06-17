@@ -109,7 +109,6 @@ by a logical ’1’. Physical states (e.g. electrical voltage, light) that repr
 levels are not given in this specification.
 
 
-
 # Safety
 ## Error Detection
 * Monitoring transmission and avoid corruption.
@@ -133,12 +132,15 @@ A STUFF ERROR has to be detected at the bit time of the 6th consecutive equal bi
 level in a message field that should be coded by the method of bit stuffing.
 
 ## CRC Error
-A STUFF ERROR has to be detected at the bit time of the 6th consecutive equal bit 
-level in a message field that should be coded by the method of bit stuffing.
+CRC value of received CAN message is invalid.
 
 ## Acknowledge Errors
 Detected by a transmitter whenever it does not monitor a ’dominant’ bit during the ACK SLOT
 
+## FORM Error
+In CAN frame certain bit frames will always have fixed level, like SOF must be
+dominent while entire 8 bit of EOF field must be recessive.
+This error is set when these bits are invalid.
 
 # Application Layer standards
 

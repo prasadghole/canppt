@@ -257,14 +257,18 @@ the method of bit stuffing.</p>
 </section>
 <section id="crc-error" class="slide level2">
 <h2>CRC Error</h2>
-<p>A STUFF ERROR has to be detected at the bit time of the 6th
-consecutive equal bit level in a message field that should be coded by
-the method of bit stuffing.</p>
+<p>CRC value of received CAN message is invalid.</p>
 </section>
 <section id="acknowledge-errors" class="slide level2">
 <h2>Acknowledge Errors</h2>
 <p>Detected by a transmitter whenever it does not monitor a ’dominant’
 bit during the ACK SLOT</p>
+</section>
+<section id="form-error" class="slide level2">
+<h2>FORM Error</h2>
+<p>In CAN frame certain bit frames will always have fixed level, like
+SOF must be dominent while entire 8 bit of EOF field must be recessive.
+This error is set when these bits are invalid.</p>
 </section></section>
 <section>
 <section id="application-layer-standards"
