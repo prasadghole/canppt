@@ -158,9 +158,6 @@ Is standard used in heavy-duty vehicles like
 - Dynamic 8 bit address assignment to nodes.
 - Data conversion is possilbe across multiple manufacturers
 
-## Parameter Group Number (PGN)
-It is 18 bit subset of 29 bit-extended CAN ID.
-
 # OBD2
 
 ## OBD2
@@ -300,6 +297,19 @@ assert msg1.data == msg2.data
 assert msg1.timestamp != msg2.timestamp
 
 ```
+
+# Hardware 
+## CAN transreceivers
+In order to interface CAN signals various microcontrollers are available with
+CAN decoder available on chip. But in industrial application mostly a dedicated
+IC is used for interfacing external CAN bus with microcontroller.
+
+## Microchip MPC2515
+
+![](./img/mpc2515pin.png)
+
+## MPC2515 Block Diagram
+![](./img/mpc2515block.png)
 
 # LIN 
 ## LIN 

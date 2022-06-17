@@ -291,10 +291,6 @@ Military vehicles - Agriculture</p>
 <li>Dynamic 8 bit address assignment to nodes.</li>
 <li>Data conversion is possilbe across multiple manufacturers</li>
 </ul>
-</section>
-<section id="parameter-group-number-pgn" class="slide level2">
-<h2>Parameter Group Number (PGN)</h2>
-<p>It is 18 bit subset of 29 bit-extended CAN ID.</p>
 </section></section>
 <section>
 <section id="obd2" class="title-slide slide level1">
@@ -475,6 +471,26 @@ assert msg1.arbitration_id == msg2.arbitration_id
 assert msg1.data == msg2.data
 assert msg1.timestamp != msg2.timestamp
 </code></pre>
+</section></section>
+<section>
+<section id="hardware" class="title-slide slide level1">
+<h1>Hardware</h1>
+
+</section>
+<section id="can-transreceivers" class="slide level2">
+<h2>CAN transreceivers</h2>
+<p>In order to interface CAN signals various microcontrollers are
+available with CAN decoder available on chip. But in industrial
+application mostly a dedicated IC is used for interfacing external CAN
+bus with microcontroller.</p>
+</section>
+<section id="microchip-mpc2515" class="slide level2">
+<h2>Microchip MPC2515</h2>
+<p><img data-src="./img/mpc2515pin.png" /></p>
+</section>
+<section id="mpc2515-block-diagram" class="slide level2">
+<h2>MPC2515 Block Diagram</h2>
+<p><img data-src="./img/mpc2515block.png" /></p>
 </section></section>
 <section>
 <section id="lin" class="title-slide slide level1">
