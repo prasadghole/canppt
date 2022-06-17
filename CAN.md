@@ -31,6 +31,33 @@ For data, diagnostic, configuration and updates.
 ## Efficient
 CAN messages are priority base and provide fix or measureable latencies.
 
+# CAN properties
+
+## Message prioritization
+
+## Guarnted latency time
+
+## Configuration flexibility
+
+## system wide data consistency
+
+## multimaster
+
+## Error detection and Signalling
+
+## Automatic retransmission of corrupted messages
+
+## Distinction between temporary and permanant failures of node
+
+# Structure of CAN 
+## Layered structure 
+
+![CAN layers](./img/can_layer.png)
+
+# CAN Bus topology
+## CAN Bus topology
+![Multiple nodes on CAN ](./img/bus_top.png)
+
 
 # ISO Standard
 ## ISO 11898 Standard
@@ -45,6 +72,22 @@ ISO 11898 defines data link and physical layer only.
 * DeviceNet by Rockwell automation
 
 # CAN frames
+## Dominant vs recessive bit
+
+![Bus electrical levels](./img/bus_level.png)
+
+## Bus values
+The bus can have one of two complementary logical values: ’dominant’ or ’recessive’.
+During simultaneous transmission of ’dominant’ and ’recessive’ bits, the resulting bus
+value will be ’dominant’. 
+
+## Wired AND logic
+For example, in case of a wired-AND implementation of the
+bus, the ’dominant’ level would be represented by a logical ’0’ and the ’recessive’ level
+by a logical ’1’. Physical states (e.g. electrical voltage, light) that represent the logical
+levels are not given in this specification.
+
+
 ## Standard CAN frame
 ![Standard CAN frame](./img/stdcan.png)
 
@@ -56,11 +99,49 @@ ISO 11898 defines data link and physical layer only.
 ## Extended CAN frame
 ![Extended](./img/extcan.png)
 
+
+
 ## Need for Application layer standards
 As the CAN standard only provide basis for communication only but do not specify things
 like 
 - How to decode payload 
 - How to trasport data more than 64 bytes
+
+# Bus arbitration 
+## Arbitration 
+During arbitration every transmitter compares the level of the bit transmitted with the level that is monitored on the bus.
+If these levels are equal the unit may continue to send. When a ’recessive’ level is sent and a ’dominant’ level is
+monitored (see Bus Values), the unit has lost arbitration and must withdraw without sending one more bit.
+
+# Safety
+## Error Detection
+* Monitoring transmission and avoid corruption.
+* Cyclic Redundany Check
+* Bit Stuffing
+* Message Frame Check
+
+## Fault Confinement
+Defective nodes are switched off.
+
+
+# Error Handling
+
+## Bit Errors
+A unit that is sending a bit on the bus also monitors the bus. A BIT ERROR has to 
+be detected at that bit time, when the bit value that is monitored is different from the 
+bit value that is sent.
+
+## Stuff Error
+A STUFF ERROR has to be detected at the bit time of the 6th consecutive equal bit 
+level in a message field that should be coded by the method of bit stuffing.
+
+## CRC Error
+A STUFF ERROR has to be detected at the bit time of the 6th consecutive equal bit 
+level in a message field that should be coded by the method of bit stuffing.
+
+## Acknowledge Errors
+Detected by a transmitter whenever it does not monitor a ’dominant’ bit during the ACK SLOT
+
 
 # SAE J1939
 

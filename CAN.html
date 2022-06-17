@@ -81,6 +81,62 @@ updates.</p>
 latencies.</p>
 </section></section>
 <section>
+<section id="can-properties" class="title-slide slide level1">
+<h1>CAN properties</h1>
+
+</section>
+<section id="message-prioritization" class="slide level2">
+<h2>Message prioritization</h2>
+</section>
+<section id="guarnted-latency-time" class="slide level2">
+<h2>Guarnted latency time</h2>
+</section>
+<section id="configuration-flexibility" class="slide level2">
+<h2>Configuration flexibility</h2>
+</section>
+<section id="system-wide-data-consistency" class="slide level2">
+<h2>system wide data consistency</h2>
+</section>
+<section id="multimaster" class="slide level2">
+<h2>multimaster</h2>
+</section>
+<section id="error-detection-and-signalling" class="slide level2">
+<h2>Error detection and Signalling</h2>
+</section>
+<section id="automatic-retransmission-of-corrupted-messages"
+class="slide level2">
+<h2>Automatic retransmission of corrupted messages</h2>
+</section>
+<section
+id="distinction-between-temporary-and-permanant-failures-of-node"
+class="slide level2">
+<h2>Distinction between temporary and permanant failures of node</h2>
+</section></section>
+<section>
+<section id="structure-of-can" class="title-slide slide level1">
+<h1>Structure of CAN</h1>
+
+</section>
+<section id="layered-structure" class="slide level2">
+<h2>Layered structure</h2>
+<figure>
+<img data-src="./img/can_layer.png" alt="CAN layers" />
+<figcaption aria-hidden="true">CAN layers</figcaption>
+</figure>
+</section></section>
+<section>
+<section id="can-bus-topology" class="title-slide slide level1">
+<h1>CAN Bus topology</h1>
+
+</section>
+<section id="can-bus-topology-1" class="slide level2">
+<h2>CAN Bus topology</h2>
+<figure>
+<img data-src="./img/bus_top.png" alt="Multiple nodes on CAN" />
+<figcaption aria-hidden="true">Multiple nodes on CAN</figcaption>
+</figure>
+</section></section>
+<section>
 <section id="iso-standard" class="title-slide slide level1">
 <h1>ISO Standard</h1>
 
@@ -104,6 +160,27 @@ Open System Interconnect (OSI) model.</p>
 <section id="can-frames" class="title-slide slide level1">
 <h1>CAN frames</h1>
 
+</section>
+<section id="dominant-vs-recessive-bit" class="slide level2">
+<h2>Dominant vs recessive bit</h2>
+<figure>
+<img data-src="./img/bus_level.png" alt="Bus electrical levels" />
+<figcaption aria-hidden="true">Bus electrical levels</figcaption>
+</figure>
+</section>
+<section id="bus-values" class="slide level2">
+<h2>Bus values</h2>
+<p>The bus can have one of two complementary logical values: ’dominant’
+or ’recessive’. During simultaneous transmission of ’dominant’ and
+’recessive’ bits, the resulting bus value will be ’dominant’.</p>
+</section>
+<section id="wired-and-logic" class="slide level2">
+<h2>Wired AND logic</h2>
+<p>For example, in case of a wired-AND implementation of the bus, the
+’dominant’ level would be represented by a logical ’0’ and the
+’recessive’ level by a logical ’1’. Physical states (e.g. electrical
+voltage, light) that represent the logical levels are not given in this
+specification.</p>
 </section>
 <section id="standard-can-frame" class="slide level2">
 <h2>Standard CAN frame</h2>
@@ -134,6 +211,65 @@ Open System Interconnect (OSI) model.</p>
 <p>As the CAN standard only provide basis for communication only but do
 not specify things like - How to decode payload - How to trasport data
 more than 64 bytes</p>
+</section></section>
+<section>
+<section id="bus-arbitration" class="title-slide slide level1">
+<h1>Bus arbitration</h1>
+
+</section>
+<section id="arbitration" class="slide level2">
+<h2>Arbitration</h2>
+<p>During arbitration every transmitter compares the level of the bit
+transmitted with the level that is monitored on the bus. If these levels
+are equal the unit may continue to send. When a ’recessive’ level is
+sent and a ’dominant’ level is monitored (see Bus Values), the unit has
+lost arbitration and must withdraw without sending one more bit.</p>
+</section></section>
+<section>
+<section id="safety" class="title-slide slide level1">
+<h1>Safety</h1>
+
+</section>
+<section id="error-detection" class="slide level2">
+<h2>Error Detection</h2>
+<ul>
+<li>Monitoring transmission and avoid corruption.</li>
+<li>Cyclic Redundany Check</li>
+<li>Bit Stuffing</li>
+<li>Message Frame Check</li>
+</ul>
+</section>
+<section id="fault-confinement" class="slide level2">
+<h2>Fault Confinement</h2>
+<p>Defective nodes are switched off.</p>
+</section></section>
+<section>
+<section id="error-handling" class="title-slide slide level1">
+<h1>Error Handling</h1>
+
+</section>
+<section id="bit-errors" class="slide level2">
+<h2>Bit Errors</h2>
+<p>A unit that is sending a bit on the bus also monitors the bus. A BIT
+ERROR has to be detected at that bit time, when the bit value that is
+monitored is different from the bit value that is sent.</p>
+</section>
+<section id="stuff-error" class="slide level2">
+<h2>Stuff Error</h2>
+<p>A STUFF ERROR has to be detected at the bit time of the 6th
+consecutive equal bit level in a message field that should be coded by
+the method of bit stuffing.</p>
+</section>
+<section id="crc-error" class="slide level2">
+<h2>CRC Error</h2>
+<p>A STUFF ERROR has to be detected at the bit time of the 6th
+consecutive equal bit level in a message field that should be coded by
+the method of bit stuffing.</p>
+</section>
+<section id="acknowledge-errors" class="slide level2">
+<h2>Acknowledge Errors</h2>
+<p>Detected by a transmitter whenever it does not monitor a ’dominant’
+bit during the ACK SLOT</p>
 </section></section>
 <section>
 <section id="sae-j1939" class="title-slide slide level1">
