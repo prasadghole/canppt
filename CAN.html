@@ -36,20 +36,74 @@
 <h1>Introduction</h1>
 
 </section>
+<section id="history" class="slide level2">
+<h2>History</h2>
+<ul>
+<li>Before CAN point to point wiring</li>
+<li>1986: Bosch developed the CAN protocol</li>
+<li>1991: Published CAN 2.0 (CAN 2.0: 11 bit, 2.0B: 29 bit)</li>
+<li>1993: CAN adapoted as ISO 11898 standard</li>
+<li>2003: ISO 11989 becomes standard series</li>
+<li>2012: CAN FD 1.0 (flexible data rate upto 5 mbps) released</li>
+<li>2015: CAN FD is standardized (ISO 11898-1)</li>
+</ul>
+</section></section>
+<section>
+<section id="why-can-bus" class="title-slide slide level1">
+<h1>Why CAN bus ?</h1>
+
+</section>
+<section id="simple-and-low-cost" class="slide level2">
+<h2>Simple and low cost</h2>
+<p>ECU (Electronics control units) communicate with each other using
+simple digital signal via 2 wire bus system. Reducing weight, cost,
+maintaince.</p>
+</section>
+<section id="centralized" class="slide level2">
+<h2>Centralized</h2>
+<p>Provides only one point of entry (2 wire bus) for all ECU to
+communicate with each other. For data, diagnostic, configuration and
+updates.</p>
+</section>
+<section id="robust" class="slide level2">
+<h2>Robust</h2>
+<ul>
+<li>Immune to electrical and electromagnetic interference</li>
+<li>Digital signal levels</li>
+<li>Inbuilt error detection and retry mechanism</li>
+<li>Inbuild error handling</li>
+<li>Ideal for safety critical applications</li>
+</ul>
+</section>
+<section id="efficient" class="slide level2">
+<h2>Efficient</h2>
+<p>CAN messages are priority base and provide fix or measureable
+latencies.</p>
+</section></section>
+<section>
+<section id="iso-standard" class="title-slide slide level1">
+<h1>ISO Standard</h1>
+
+</section>
 <section id="iso-11898-standard" class="slide level2">
 <h2>ISO 11898 Standard</h2>
-<p>CAN is an international standardization Organization (ISO) defined
-serial communication bus originally developed for automotive industry to
-replace complex and expensive wiring harness with two wire bus. The
-specification call for high immunity to electrical interference and the
-ability to self-diagnose and repair data errors.</p>
 <p>The CAN communication protocol, ISO-11898: 2003, describes how
 information is passed between devices on network and conforms to the
 Open System Interconnect (OSI) model.</p>
 <p>ISO 11898 defines data link and physical layer only.</p>
-<p>Application layer is mostly defined by various industrial bodies like
-- CANOpen by CAN in Automation (CiA) - KVASER CAN Kingdom by Kvaser -
-DeviceNet by Rockwell automation</p>
+</section>
+<section id="application-layer" class="slide level2">
+<h2>Application Layer</h2>
+<ul>
+<li>CANOpen by CAN in Automation (CiA)</li>
+<li>KVASER CAN Kingdom by Kvaser</li>
+<li>DeviceNet by Rockwell automation</li>
+</ul>
+</section></section>
+<section>
+<section id="can-frames" class="title-slide slide level1">
+<h1>CAN frames</h1>
+
 </section>
 <section id="standard-can-frame" class="slide level2">
 <h2>Standard CAN frame</h2>
@@ -57,6 +111,9 @@ DeviceNet by Rockwell automation</p>
 <img data-src="./img/stdcan.png" alt="Standard CAN frame" />
 <figcaption aria-hidden="true">Standard CAN frame</figcaption>
 </figure>
+</section>
+<section id="standard-can-frame-1" class="slide level2">
+<h2>Standard CAN frame</h2>
 </section>
 <section id="can-waveforms" class="slide level2">
 <h2>CAN Waveforms</h2>
@@ -67,21 +124,29 @@ DeviceNet by Rockwell automation</p>
 </section>
 <section id="extended-can-frame" class="slide level2">
 <h2>Extended CAN frame</h2>
-<p>!(./img/extcan.png)</p>
+<figure>
+<img data-src="./img/extcan.png" alt="Extended" />
+<figcaption aria-hidden="true">Extended</figcaption>
+</figure>
 </section>
 <section id="need-for-application-layer-standards" class="slide level2">
 <h2>Need for Application layer standards</h2>
 <p>As the CAN standard only provide basis for communication only but do
 not specify things like - How to decode payload - How to trasport data
 more than 64 bytes</p>
+</section></section>
+<section>
+<section id="sae-j1939" class="title-slide slide level1">
+<h1>SAE J1939</h1>
+
 </section>
-<section id="sae-j1939" class="slide level2">
+<section id="sae-j1939-1" class="slide level2">
 <h2>SAE J1939</h2>
 <p>Is standard used in heavy-duty vehicles like - Mining vehicles -
 Military vehicles - Agriculture</p>
 </section>
-<section id="sae-j1939-1" class="slide level2">
-<h2>SAE J1939</h2>
+<section id="features" class="slide level2">
+<h2>Features</h2>
 <ul>
 <li>Support 29 bit extended ID</li>
 <li>250K baud rate</li>
@@ -94,40 +159,74 @@ Military vehicles - Agriculture</p>
 <section id="parameter-group-number-pgn" class="slide level2">
 <h2>Parameter Group Number (PGN)</h2>
 <p>It is 18 bit subset of 29 bit-extended CAN ID.</p>
+</section></section>
+<section>
+<section id="obd2" class="title-slide slide level1">
+<h1>OBD2</h1>
+
 </section>
-<section id="obd2" class="slide level2">
+<section id="obd2-1" class="slide level2">
 <h2>OBD2</h2>
 <p>On board diagnostics is a self-diagnostic and reporting. It provide
 diagnostic trouble codes (DTCs) and real time vehicle parameters data
 using standard ports.</p>
+</section></section>
+<section>
+<section id="uds" class="title-slide slide level1">
+<h1>UDS</h1>
+
 </section>
-<section id="uds" class="slide level2">
+<section id="uds-1" class="slide level2">
 <h2>UDS</h2>
 <p>Unified Diagnostic Service (UDS) is a communication protocol used to
 diagnost, firmware update and routine testing.</p>
 <p>The UDS protocol (ISO 14229) is standardizedc across manufacturers.
 It is a client server protocol with test tool being client and ECU being
 server.</p>
+</section>
+<section id="uds-services" class="slide level2">
+<h2>UDS Services</h2>
+<p><img data-src="./img/uds_services.png" /></p>
 <p>Use cases - Read diagnostic codes - Read vehicle parameters -
 Diagnostic - Update firmware and settings - Secure access</p>
+</section></section>
+<section>
+<section id="can-iso-tp" class="title-slide slide level1">
+<h1>CAN ISO-TP</h1>
+
 </section>
-<section id="can-iso-tp" class="slide level2">
+<section id="can-iso-tp-1" class="slide level2">
 <h2>CAN ISO-TP</h2>
 <p>Classiscal and extended CAN support maximum 8 and 64 bytes in one
 communication frame. Diagnostic and firmware upgrade require larger
 payload. ISO-TP provide facility to extend CAN payload upto 4095 bytes
 using segmentation, flow control and reassembly.</p>
+</section></section>
+<section>
+<section id="can-open" class="title-slide slide level1">
+<h1>CAN Open</h1>
+
 </section>
-<section id="can-open" class="slide level2">
+<section id="can-open-1" class="slide level2">
 <h2>CAN Open</h2>
 <p>Is mostly used in industrial automation.</p>
+</section></section>
+<section>
+<section id="dbc-files" class="title-slide slide level1">
+<h1>DBC Files</h1>
+
 </section>
-<section id="dbc-files" class="slide level2">
+<section id="dbc-files-1" class="slide level2">
 <h2>DBC Files</h2>
 <p>CAN DBC CAN database is a text file decribing how to decode raw CAN
 but data to physical values.</p>
+</section></section>
+<section>
+<section id="lin" class="title-slide slide level1">
+<h1>LIN</h1>
+
 </section>
-<section id="lin" class="slide level2">
+<section id="lin-1" class="slide level2">
 <h2>LIN</h2>
 <ul>
 <li>Low cost alternative to CAN bus</li>
@@ -176,7 +275,7 @@ actuators</li>
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: true,
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
