@@ -360,6 +360,54 @@ server.</p>
 <p><img data-src="./img/uds_services.png" /></p>
 <p>Use cases - Read diagnostic codes - Read vehicle parameters -
 Diagnostic - Update firmware and settings - Secure access</p>
+</section>
+<section id="uds-request-frame" class="slide level2">
+<h2>UDS request frame</h2>
+<p><img data-src="./img/udsframe.png" /></p>
+<ul>
+<li>PCI Protocol Control Information used for interpreting frame
+type.</li>
+<li>Service ID</li>
+<li>Sub function ID</li>
+<li>Request Data parameter</li>
+</ul>
+</section>
+<section id="positive-uds-response-frame" class="slide level2">
+<h2>Positive UDS Response frame</h2>
+<p>For positive response 0x40 will be added to request service ID
+followed by data payload.</p>
+</section>
+<section id="negative-uds-response-frame" class="slide level2">
+<h2>Negative UDS Response frame</h2>
+<p><img data-src="./img/udsnegresp.png" /></p>
+</section>
+<section id="negative-uds-response-frame-1" class="slide level2">
+<h2>Negative UDS Response frame</h2>
+<p>Error code is always fix 0x7F along with rejected Service ID. Based
+on Service ID negative response code field will identify error
+types.</p>
+</section>
+<section id="negative-uds-response-frame-2" class="slide level2">
+<h2>Negative UDS Response frame</h2>
+<p><img data-src="./img/nrccodes.png" /></p>
+</section>
+<section id="uds-authentification" class="slide level2">
+<h2>UDS Authentification</h2>
+<p>For security reasons critical UDS services like firmware downloading
+need authentification.</p>
+</section>
+<section id="access-control" class="slide level2">
+<h2>Access Control</h2>
+<ul>
+<li>When client request any higher session layer service</li>
+<li>Server sends a ‘seed’ (random numeric key) to client.</li>
+<li>Client then based on seed value calculate key using propriotary
+algorithm shared by server (ECU manufacturer).</li>
+<li>Send back key to server.</li>
+<li>Server then compare the key to its own key calculated based on same
+seed.</li>
+<li>If both key matches then server grant the access to client.</li>
+</ul>
 </section></section>
 <section>
 <section id="can-iso-tp" class="title-slide slide level1">

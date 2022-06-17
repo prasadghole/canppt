@@ -215,6 +215,41 @@ Use cases
 - Update firmware and settings
 - Secure access
 
+## UDS request frame
+![](./img/udsframe.png)
+
+* PCI Protocol Control Information used for interpreting frame type.
+* Service ID
+* Sub function ID
+* Request Data parameter
+
+## Positive UDS Response frame
+For positive response 0x40 will be added to request service ID followed by data payload.
+
+
+## Negative UDS Response frame
+![](./img/udsnegresp.png)
+
+## Negative UDS Response frame
+Error code is always fix 0x7F along with rejected Service ID.
+Based on Service ID negative response code field will identify error types.
+
+## Negative UDS Response frame
+![](./img/nrccodes.png)
+
+## UDS Authentification
+For security reasons critical UDS services like firmware downloading need authentification.
+
+## Access Control
+* When client request any higher session layer service 
+* Server sends a 'seed' (random numeric key) to client. 
+* Client then based on seed value calculate key using propriotary algorithm shared by
+server (ECU manufacturer). 
+* Send back key to server.
+* Server then compare the key to its own key calculated based on same seed.
+* If both key matches then server grant the access to client.
+
+
 # CAN ISO-TP
 ## CAN ISO-TP
 Classiscal and extended CAN support maximum 8 and 64 bytes in one communication frame.
