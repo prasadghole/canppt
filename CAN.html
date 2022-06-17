@@ -188,9 +188,17 @@ specification.</p>
 <img data-src="./img/stdcan.png" alt="Standard CAN frame" />
 <figcaption aria-hidden="true">Standard CAN frame</figcaption>
 </figure>
-</section>
-<section id="standard-can-frame-1" class="slide level2">
-<h2>Standard CAN frame</h2>
+<ul>
+<li>SOF Start of frame. Dominant 0 tells other nodes intend to
+talk.</li>
+<li>ID Frame Identifier</li>
+<li>RTR Requesting data from other nodes.</li>
+<li>Control Data Length of payload field.</li>
+<li>Data Contains payload</li>
+<li>CRC</li>
+<li>ACK</li>
+<li>EOF End of CAN frames</li>
+</ul>
 </section>
 <section id="can-waveforms" class="slide level2">
 <h2>CAN Waveforms</h2>
@@ -306,6 +314,33 @@ Military vehicles - Agriculture</p>
 <p>On board diagnostics is a self-diagnostic and reporting. It provide
 diagnostic trouble codes (DTCs) and real time vehicle parameters data
 using standard ports.</p>
+<p><img data-src="./img/obdcon.jpg" /></p>
+</section>
+<section id="obd2-frame" class="slide level2">
+<h2>OBD2 frame</h2>
+<p><img data-src="./img/obdframe.png" /></p>
+<ul>
+<li>Identifier: Its a standard 11 bit reserved ID used for request
+(0x7DF) and response (0x7E8 to 0x7EF)</li>
+<li>Length of transmitting data (3-6)</li>
+<li>Mode (services)</li>
+<li>PID Standard parameter identifier</li>
+<li>ABCD Payload</li>
+</ul>
+</section>
+<section id="modes" class="slide level2">
+<h2>Modes</h2>
+<ul>
+<li>01 Show current data</li>
+<li>02 Show freeze frame data</li>
+<li>02 Show stored DTC</li>
+<li>04 Clear DTC</li>
+<li>06 Test results for system monitoring</li>
+<li>07 Show pending DTC</li>
+<li>08 Control operation on vehicle</li>
+<li>09 Request vehicle information (VIN )</li>
+<li>0A Permananent DTC</li>
+</ul>
 </section></section>
 <section>
 <section id="uds" class="title-slide slide level1">

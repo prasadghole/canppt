@@ -91,7 +91,14 @@ levels are not given in this specification.
 ## Standard CAN frame
 ![Standard CAN frame](./img/stdcan.png)
 
-## Standard CAN frame
+* SOF Start of frame. Dominant 0 tells other nodes intend to talk.
+* ID  Frame Identifier 
+* RTR Requesting data from other nodes.
+* Control Data Length of payload field.
+* Data Contains payload
+* CRC 
+* ACK
+* EOF End of CAN frames
 
 ## CAN Waveforms
 ![CAN waveform](./img/can_scope.png)
@@ -167,6 +174,28 @@ It is 18 bit subset of 29 bit-extended CAN ID.
 ## OBD2
 On board diagnostics is a self-diagnostic and reporting. It provide diagnostic trouble codes
 (DTCs) and real time vehicle parameters data using standard ports.
+
+![](./img/obdcon.jpg)
+
+## OBD2 frame
+![](./img/obdframe.png)
+
+* Identifier: Its a standard 11 bit reserved ID used for request (0x7DF) and response (0x7E8 to 0x7EF)
+* Length of transmitting data (3-6)
+* Mode (services)
+* PID Standard parameter identifier
+* ABCD Payload
+
+## Modes
+* 01 Show current data
+* 02 Show freeze frame data
+* 02 Show stored DTC
+* 04 Clear DTC
+* 06 Test results for system monitoring
+* 07 Show pending DTC
+* 08 Control operation on vehicle
+* 09 Request vehicle information (VIN )
+* 0A Permananent DTC
 
 # UDS 
 ## UDS 
