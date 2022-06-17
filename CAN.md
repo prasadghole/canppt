@@ -274,10 +274,15 @@ ISO 11898 defines data link and physical layer only.
 * CANOpen by CAN in Automation (CiA)
 * KVASER CAN Kingdom by Kvaser
 * DeviceNet by Rockwell automation
-# CAN Open
-## CAN Open
-Is mostly used in industrial automation.
 
+## CAN Open
+![](./img/canopen.png)
+
+This standard defines communication mechanism and functionalities for communicating
+devices. This means any devices supporing CANopen can interoperate with each other.
+
+## CAN Open Device
+![](./img/canopendevice.png)
 
 # Software Tools
 
