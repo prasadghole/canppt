@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>CAN Bus Applications</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/solarized.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">CAN Bus Applications</h1>
+</section>
+
+<section>
+<section id="introduction" class="title-slide slide level1">
+<h1>Introduction</h1>
+
+</section>
+<section id="iso-11898-standard" class="slide level2">
+<h2>ISO 11898 Standard</h2>
+<p>CAN is an international standardization Organization (ISO) defined
+serial communication bus originally developed for automotive industry to
+replace complex and expensive wiring harness with two wire bus. The
+specification call for high immunity to electrical interference and the
+ability to self-diagnose and repair data errors.</p>
+<p>The CAN communication protocol, ISO-11898: 2003, describes how
+information is passed between devices on network and conforms to the
+Open System Interconnect (OSI) model.</p>
+<p>ISO 11898 defines data link and physical layer only.</p>
+<p>Application layer is mostly defined by various industrial bodies like
+- CANOpen by CAN in Automation (CiA) - KVASER CAN Kingdom by Kvaser -
+DeviceNet by Rockwell automation</p>
+</section>
+<section id="standard-can-frame" class="slide level2">
+<h2>Standard CAN frame</h2>
+<figure>
+<img data-src="./img/stdcan.png" alt="Standard CAN frame" />
+<figcaption aria-hidden="true">Standard CAN frame</figcaption>
+</figure>
+</section>
+<section id="can-waveforms" class="slide level2">
+<h2>CAN Waveforms</h2>
+<figure>
+<img data-src="./img/can_scope.png" alt="CAN waveform" />
+<figcaption aria-hidden="true">CAN waveform</figcaption>
+</figure>
+</section>
+<section id="extended-can-frame" class="slide level2">
+<h2>Extended CAN frame</h2>
+<p>!(./img/extcan.png)</p>
+</section>
+<section id="need-for-application-layer-standards" class="slide level2">
+<h2>Need for Application layer standards</h2>
+<p>As the CAN standard only provide basis for communication only but do
+not specify things like - How to decode payload - How to trasport data
+more than 64 bytes</p>
+</section>
+<section id="sae-j1939" class="slide level2">
+<h2>SAE J1939</h2>
+<p>Is standard used in heavy-duty vehicles like - Mining vehicles -
+Military vehicles - Agriculture</p>
+</section>
+<section id="sae-j1939-1" class="slide level2">
+<h2>SAE J1939</h2>
+<ul>
+<li>Support 29 bit extended ID</li>
+<li>250K baud rate</li>
+<li>Parameter Group Numbers (PGN) (standard and use specific)</li>
+<li>Suspect Parameter Number (SPN)</li>
+<li>Dynamic 8 bit address assignment to nodes.</li>
+<li>Data conversion is possilbe across multiple manufacturers</li>
+</ul>
+</section>
+<section id="parameter-group-number-pgn" class="slide level2">
+<h2>Parameter Group Number (PGN)</h2>
+<p>It is 18 bit subset of 29 bit-extended CAN ID.</p>
+</section>
+<section id="obd2" class="slide level2">
+<h2>OBD2</h2>
+<p>On board diagnostics is a self-diagnostic and reporting. It provide
+diagnostic trouble codes (DTCs) and real time vehicle parameters data
+using standard ports.</p>
+</section>
+<section id="uds" class="slide level2">
+<h2>UDS</h2>
+<p>Unified Diagnostic Service (UDS) is a communication protocol used to
+diagnost, firmware update and routine testing.</p>
+<p>The UDS protocol (ISO 14229) is standardizedc across manufacturers.
+It is a client server protocol with test tool being client and ECU being
+server.</p>
+<p>Use cases - Read diagnostic codes - Read vehicle parameters -
+Diagnostic - Update firmware and settings - Secure access</p>
+</section>
+<section id="can-iso-tp" class="slide level2">
+<h2>CAN ISO-TP</h2>
+<p>Classiscal and extended CAN support maximum 8 and 64 bytes in one
+communication frame. Diagnostic and firmware upgrade require larger
+payload. ISO-TP provide facility to extend CAN payload upto 4095 bytes
+using segmentation, flow control and reassembly.</p>
+</section>
+<section id="can-open" class="slide level2">
+<h2>CAN Open</h2>
+<p>Is mostly used in industrial automation.</p>
+</section>
+<section id="dbc-files" class="slide level2">
+<h2>DBC Files</h2>
+<p>CAN DBC CAN database is a text file decribing how to decode raw CAN
+but data to physical values.</p>
+</section>
+<section id="lin" class="slide level2">
+<h2>LIN</h2>
+<ul>
+<li>Low cost alternative to CAN bus</li>
+<li>Mostly used for window, wiper, air condition low time constrained
+actuators</li>
+<li>Master slave configuration</li>
+<li>Single wirr with 1-20 Kbit/s</li>
+<li>Time triggered scheduling with guaranteed latency time</li>
+<li>Variable data length (2,4,8)</li>
+<li>Error detection</li>
+<li>Configuration</li>
+<li>12 Voltage operating mode</li>
+<li>Sleep and wake support for power saving</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
