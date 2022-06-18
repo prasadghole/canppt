@@ -289,6 +289,15 @@ devices. This means any devices supporting CANopen can interoperate with each ot
 ## DBC Files
 CAN DBC CAN database is a text file describing how to decode raw CAN but data to physical values.
 
+## DBC Conversion
+
+![](./img/dbcraw.png)
+![](./img/dbc_value.png)
+
+## DBC Format
+
+![](./img/dbc_format.png)
+
 ## Virtual CAN network tools
 Many python libraries can be used to simulate and test CAN bus on PC
 ```
