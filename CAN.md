@@ -1,4 +1,4 @@
-% CAN Bus Applications 
+% Controller Area Network (CAN)
 
 # Introduction
 
@@ -6,7 +6,7 @@
 * Before CAN point to point wiring
 * 1986: Bosch developed the CAN protocol
 * 1991: Published CAN 2.0 (CAN 2.0: 11 bit, 2.0B: 29 bit)
-* 1993: CAN adapoted as ISO 11898 standard
+* 1993: CAN adopted as ISO 11898 standard
 * 2003: ISO 11989 becomes standard series
 * 2012: CAN FD 1.0 (flexible data rate upto 5 mbps) released
 * 2015: CAN FD is standardized (ISO 11898-1)
@@ -25,17 +25,17 @@ For data, diagnostic, configuration and updates.
 * Immune to electrical and electromagnetic interference
 * Digital signal levels 
 * Inbuilt error detection and retry mechanism 
-* Inbuild error handling
+* Inbuilt error handling
 * Ideal for safety critical applications
 
 ## Efficient
-CAN messages are priority base and provide fix or measureable latencies.
+CAN messages are priority base and provide fix or measurable latencies.
 
 # CAN properties
 
 ## Message prioritization
 
-## Guarnted latency time
+## Guaranteed latency time
 
 ## Configuration flexibility
 
@@ -47,7 +47,7 @@ CAN messages are priority base and provide fix or measureable latencies.
 
 ## Automatic retransmission of corrupted messages
 
-## Distinction between temporary and permanant failures of node
+## Distinction between temporary and permanent failures of node
 
 # Structure of CAN 
 ## Layered structure 
@@ -95,7 +95,7 @@ value will be ’dominant’.
 
 # Bit Stuffing
 ## Bit Stuffing
-In order to distingush data frame from bus idle frame CAN actively insert/stuff bit in can payload.
+In order to distinguish data frame from bus idle frame CAN actively insert/stuff bit in can payload.
 When ever CAN node sends 5 bits of same logic level (dominant or recessive) it must send one bit
 of opposite level.
 This extra bit is automatically removed by CAN receiver at data link layer.
@@ -117,7 +117,7 @@ levels are not given in this specification.
 # Safety
 ## Error Detection
 * Monitoring transmission and avoid corruption.
-* Cyclic Redundany Check
+* Cyclic Redundancy Check
 * Bit Stuffing
 * Message Frame Check
 
@@ -131,7 +131,7 @@ Defective nodes are switched off.
 A unit that is sending a bit on the bus also monitors the bus. A BIT ERROR has to 
 be detected at that bit time, when the bit value that is monitored is different from the 
 bit value that is sent.
-If Bit error occure during arbitration process it will not be treated as bit error.
+If Bit error occur during arbitration process it will not be treated as bit error.
 
 ## Stuff Error
 A STUFF ERROR has to be detected at the bit time of the 6th consecutive equal bit 
@@ -145,7 +145,7 @@ Detected by a transmitter whenever it does not monitor a ’dominant’ bit duri
 
 ## FORM Error
 In CAN frame certain bit frames will always have fixed level, like SOF must be
-dominent while entire 8 bit of EOF field must be recessive.
+dominant while entire 8 bit of EOF field must be recessive.
 This error is set when these bits are invalid.
 
 # Application Layer standards
@@ -162,7 +162,7 @@ Is standard used in heavy-duty vehicles like
 - Parameter Group Numbers (PGN) (standard and use specific)
 - Suspect Parameter Number (SPN)
 - Dynamic 8 bit address assignment to nodes.
-- Data conversion is possilbe across multiple manufacturers
+- Data conversion is possible across multiple manufacturers
 
 # OBD2
 
@@ -190,14 +190,14 @@ On board diagnostics is a self-diagnostic and reporting. It provide diagnostic t
 * 07 Show pending DTC
 * 08 Control operation on vehicle
 * 09 Request vehicle information (VIN )
-* 0A Permananent DTC
+* 0A Permanent DTC
 
 # UDS 
 ## UDS 
-Unified Diagnostic Service (UDS) is a communication protocol used to diagnost, firmware update
+Unified Diagnostic Service (UDS) is a communication protocol used to diagnose, firmware update
 and routine testing.
 
-The UDS protocol (ISO 14229) is standardizedc across manufacturers. It is a client server 
+The UDS protocol (ISO 14229) is standardized across manufacturers. It is a client server 
 protocol with test tool being client and ECU being server.
 
 ## UDS Services
@@ -232,13 +232,13 @@ Based on Service ID negative response code field will identify error types.
 ## Negative UDS Response frame
 ![](./img/nrccodes.png)
 
-## UDS Authentification
-For security reasons critical UDS services like firmware downloading need authentification.
+## UDS Authentication
+For security reasons critical UDS services like firmware downloading need authentication.
 
 ## Access Control
 * When client request any higher session layer service 
 * Server sends a 'seed' (random numeric key) to client. 
-* Client then based on seed value calculate key using propriotary algorithm shared by
+* Client then based on seed value calculate key using proprietary algorithm shared by
 server (ECU manufacturer). 
 * Send back key to server.
 * Server then compare the key to its own key calculated based on same seed.
@@ -247,7 +247,7 @@ server (ECU manufacturer).
 
 # CAN ISO-TP
 ## CAN ISO-TP
-Classiscal and extended CAN support maximum 8 and 64 bytes in one communication frame.
+Classical and extended CAN support maximum 8 and 64 bytes in one communication frame.
 Diagnostic and firmware upgrade require larger payload. ISO-TP provide facility to extend CAN payload
 upto 4095 bytes using segmentation, flow control and reassembly.
 
@@ -279,7 +279,7 @@ ISO 11898 defines data link and physical layer only.
 ![](./img/canopen.png)
 
 This standard defines communication mechanism and functionalities for communicating
-devices. This means any devices supporing CANopen can interoperate with each other.
+devices. This means any devices supporting CANopen can interoperate with each other.
 
 ## CAN Open Device
 ![](./img/canopendevice.png)
@@ -287,7 +287,7 @@ devices. This means any devices supporing CANopen can interoperate with each oth
 # Software Tools
 
 ## DBC Files
-CAN DBC CAN database is a text file decribing how to decode raw CAN but data to physical values.
+CAN DBC CAN database is a text file describing how to decode raw CAN but data to physical values.
 
 ## Virtual CAN network tools
 Many python libraries can be used to simulate and test CAN bus on PC

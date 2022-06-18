@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>CAN Bus Applications</title>
+  <title>Controller Area Network (CAN)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,7 +28,7 @@
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">CAN Bus Applications</h1>
+  <h1 class="title">Controller Area Network (CAN)</h1>
 </section>
 
 <section>
@@ -42,7 +42,7 @@
 <li>Before CAN point to point wiring</li>
 <li>1986: Bosch developed the CAN protocol</li>
 <li>1991: Published CAN 2.0 (CAN 2.0: 11 bit, 2.0B: 29 bit)</li>
-<li>1993: CAN adapoted as ISO 11898 standard</li>
+<li>1993: CAN adopted as ISO 11898 standard</li>
 <li>2003: ISO 11989 becomes standard series</li>
 <li>2012: CAN FD 1.0 (flexible data rate upto 5 mbps) released</li>
 <li>2015: CAN FD is standardized (ISO 11898-1)</li>
@@ -71,13 +71,13 @@ updates.</p>
 <li>Immune to electrical and electromagnetic interference</li>
 <li>Digital signal levels</li>
 <li>Inbuilt error detection and retry mechanism</li>
-<li>Inbuild error handling</li>
+<li>Inbuilt error handling</li>
 <li>Ideal for safety critical applications</li>
 </ul>
 </section>
 <section id="efficient" class="slide level2">
 <h2>Efficient</h2>
-<p>CAN messages are priority base and provide fix or measureable
+<p>CAN messages are priority base and provide fix or measurable
 latencies.</p>
 </section></section>
 <section>
@@ -88,8 +88,8 @@ latencies.</p>
 <section id="message-prioritization" class="slide level2">
 <h2>Message prioritization</h2>
 </section>
-<section id="guarnted-latency-time" class="slide level2">
-<h2>Guarnted latency time</h2>
+<section id="guaranteed-latency-time" class="slide level2">
+<h2>Guaranteed latency time</h2>
 </section>
 <section id="configuration-flexibility" class="slide level2">
 <h2>Configuration flexibility</h2>
@@ -108,9 +108,9 @@ class="slide level2">
 <h2>Automatic retransmission of corrupted messages</h2>
 </section>
 <section
-id="distinction-between-temporary-and-permanant-failures-of-node"
+id="distinction-between-temporary-and-permanent-failures-of-node"
 class="slide level2">
-<h2>Distinction between temporary and permanant failures of node</h2>
+<h2>Distinction between temporary and permanent failures of node</h2>
 </section></section>
 <section>
 <section id="structure-of-can" class="title-slide slide level1">
@@ -203,7 +203,7 @@ talk.</li>
 </section>
 <section id="bit-stuffing-1" class="slide level2">
 <h2>Bit Stuffing</h2>
-<p>In order to distingush data frame from bus idle frame CAN actively
+<p>In order to distinguish data frame from bus idle frame CAN actively
 insert/stuff bit in can payload. When ever CAN node sends 5 bits of same
 logic level (dominant or recessive) it must send one bit of opposite
 level. This extra bit is automatically removed by CAN receiver at data
@@ -239,7 +239,7 @@ specification.</p>
 <h2>Error Detection</h2>
 <ul>
 <li>Monitoring transmission and avoid corruption.</li>
-<li>Cyclic Redundany Check</li>
+<li>Cyclic Redundancy Check</li>
 <li>Bit Stuffing</li>
 <li>Message Frame Check</li>
 </ul>
@@ -258,7 +258,7 @@ specification.</p>
 <p>A unit that is sending a bit on the bus also monitors the bus. A BIT
 ERROR has to be detected at that bit time, when the bit value that is
 monitored is different from the bit value that is sent. If Bit error
-occure during arbitration process it will not be treated as bit
+occur during arbitration process it will not be treated as bit
 error.</p>
 </section>
 <section id="stuff-error" class="slide level2">
@@ -279,7 +279,7 @@ bit during the ACK SLOT</p>
 <section id="form-error" class="slide level2">
 <h2>FORM Error</h2>
 <p>In CAN frame certain bit frames will always have fixed level, like
-SOF must be dominent while entire 8 bit of EOF field must be recessive.
+SOF must be dominant while entire 8 bit of EOF field must be recessive.
 This error is set when these bits are invalid.</p>
 </section></section>
 <section>
@@ -301,7 +301,7 @@ Military vehicles - Agriculture</p>
 <li>Parameter Group Numbers (PGN) (standard and use specific)</li>
 <li>Suspect Parameter Number (SPN)</li>
 <li>Dynamic 8 bit address assignment to nodes.</li>
-<li>Data conversion is possilbe across multiple manufacturers</li>
+<li>Data conversion is possible across multiple manufacturers</li>
 </ul>
 </section></section>
 <section>
@@ -339,7 +339,7 @@ using standard ports.</p>
 <li>07 Show pending DTC</li>
 <li>08 Control operation on vehicle</li>
 <li>09 Request vehicle information (VIN )</li>
-<li>0A Permananent DTC</li>
+<li>0A Permanent DTC</li>
 </ul>
 </section></section>
 <section>
@@ -350,9 +350,9 @@ using standard ports.</p>
 <section id="uds-1" class="slide level2">
 <h2>UDS</h2>
 <p>Unified Diagnostic Service (UDS) is a communication protocol used to
-diagnost, firmware update and routine testing.</p>
-<p>The UDS protocol (ISO 14229) is standardizedc across manufacturers.
-It is a client server protocol with test tool being client and ECU being
+diagnose, firmware update and routine testing.</p>
+<p>The UDS protocol (ISO 14229) is standardized across manufacturers. It
+is a client server protocol with test tool being client and ECU being
 server.</p>
 </section>
 <section id="uds-services" class="slide level2">
@@ -391,17 +391,17 @@ types.</p>
 <h2>Negative UDS Response frame</h2>
 <p><img data-src="./img/nrccodes.png" /></p>
 </section>
-<section id="uds-authentification" class="slide level2">
-<h2>UDS Authentification</h2>
+<section id="uds-authentication" class="slide level2">
+<h2>UDS Authentication</h2>
 <p>For security reasons critical UDS services like firmware downloading
-need authentification.</p>
+need authentication.</p>
 </section>
 <section id="access-control" class="slide level2">
 <h2>Access Control</h2>
 <ul>
 <li>When client request any higher session layer service</li>
 <li>Server sends a ‘seed’ (random numeric key) to client.</li>
-<li>Client then based on seed value calculate key using propriotary
+<li>Client then based on seed value calculate key using proprietary
 algorithm shared by server (ECU manufacturer).</li>
 <li>Send back key to server.</li>
 <li>Server then compare the key to its own key calculated based on same
@@ -416,7 +416,7 @@ seed.</li>
 </section>
 <section id="can-iso-tp-1" class="slide level2">
 <h2>CAN ISO-TP</h2>
-<p>Classiscal and extended CAN support maximum 8 and 64 bytes in one
+<p>Classical and extended CAN support maximum 8 and 64 bytes in one
 communication frame. Diagnostic and firmware upgrade require larger
 payload. ISO-TP provide facility to extend CAN payload upto 4095 bytes
 using segmentation, flow control and reassembly.</p>
@@ -457,7 +457,7 @@ Open System Interconnect (OSI) model.</p>
 <h2>CAN Open</h2>
 <p><img data-src="./img/canopen.png" /></p>
 <p>This standard defines communication mechanism and functionalities for
-communicating devices. This means any devices supporing CANopen can
+communicating devices. This means any devices supporting CANopen can
 interoperate with each other.</p>
 </section>
 <section id="can-open-device" class="slide level2">
@@ -471,7 +471,7 @@ interoperate with each other.</p>
 </section>
 <section id="dbc-files" class="slide level2">
 <h2>DBC Files</h2>
-<p>CAN DBC CAN database is a text file decribing how to decode raw CAN
+<p>CAN DBC CAN database is a text file describing how to decode raw CAN
 but data to physical values.</p>
 </section>
 <section id="virtual-can-network-tools" class="slide level2">
